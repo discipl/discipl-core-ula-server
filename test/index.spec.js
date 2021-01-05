@@ -16,9 +16,9 @@ describe('The ULA Server Connector', () => {
 
     const claim = await conn.get(resultLink)
 
-    expect(claim.qrcode).to.be.a('string')
-    expect(claim.sessionId).to.be.a('string')
-    expect(claim.transactionId).to.be.a('string')
+    expect(claim.inviteURL).to.be.a('string')
+    expect(claim.operationType).to.be.a('string')
+    expect(claim.documentName).to.be.a('string')
   })
 }
 )
