@@ -6,7 +6,7 @@
   "module": "src/index.js",
   "scripts": {
     "prepack": "babel src/ --out-dir dist",
-    "test": "source ./.env.sh && nyc --reporter=html --reporter=text ./node_modules/.bin/mocha --require @babel/register ./test/**/*.spec.js",
+    "test": "nyc --reporter=html --reporter=text ./node_modules/.bin/mocha --require @babel/register ./test/**/*.spec.js",
     "lint": "node ./node_modules/standard/bin/cmd.js",
     "lint-fix": "node ./node_modules/standard/bin/cmd.js --fix",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov"
