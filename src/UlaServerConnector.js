@@ -2,7 +2,6 @@ import 'isomorphic-fetch'
 import { BaseConnector } from '@discipl/core-baseconnector'
 
 class UlaServerConnector extends BaseConnector {
-
   /**
    *  Returns the name of this connector. Mainly used in did and link constructions.
    *
