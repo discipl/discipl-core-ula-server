@@ -1,8 +1,5 @@
 name: Tests
 on:
-  push:
-    branches:
-      - extract-discipl-core-ula-server-connector
   pull_request:
     branches:
       - master

@@ -13,52 +13,54 @@ class UlaServerConnector extends BaseConnector {
   }
 
   configure (serverEndpoint, basicAuth) {
-    this.serverEndpoint = serverEndpoint;
-    this.basicAuth = basicAuth;
+    this.serverEndpoint = serverEndpoint
+    this.basicAuth = basicAuth
   }
 
-  async claim(did, _privkey, data) {
+  async claim (did, _privkey, data) {
     const body = {
-        "toAttest": data,
-        "toVerify": [],
-        "userId": did
-      }
+      toAttest: data,
+      toVerify: [],
+      userId: did
+    }
+
+    const fetch = require('node-fetch')
 
     const result = await fetch(this.serverEndpoint, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': "Basic " + this.basicAuth
-        },
-        body: JSON.stringify(body)
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + this.basicAuth
+      },
+      body: JSON.stringify(body)
     })
 
-    const response = await result.json();
+    const response = await result.json()
 
-    return this.linkFromReference(Buffer.from(JSON.stringify(response)).toString('base64'));
+    return this.linkFromReference(Buffer.from(JSON.stringify(response)).toString('base64'))
   }
 
   getDidOfClaim () {
     // TODO: Fill in, maybe
   }
-  
-  getLatestClaim() {
-      throw new Error("Unsupported method")
-  }
-  
-  newIdentity() {
-    throw new Error("Unsupported method")
+
+  getLatestClaim () {
+    throw new Error('Unsupported method')
   }
 
-  get(link, _did = null, _privkey = null) {
-    const reference = BaseConnector.referenceFromLink(link);
-    const data = JSON.parse(Buffer.from(reference, 'base64').toString('utf8'));
-    return {"inviteURL":data.qrcode,"operationType":"issuing", "documentName": "testdocument"};
+  newIdentity () {
+    throw new Error('Unsupported method')
   }
 
-  observe() {
-    throw new Error("Unsupported method")
+  get (link, _did = null, _privkey = null) {
+    const reference = BaseConnector.referenceFromLink(link)
+    const data = JSON.parse(Buffer.from(reference, 'base64').toString('utf8'))
+    return { inviteURL: data.qrcode, operationType: 'issuing', documentName: 'testdocument' }
+  }
+
+  observe () {
+    throw new Error('Unsupported method')
   }
 }
 
-export default UlaServerConnector;
+export default UlaServerConnector
