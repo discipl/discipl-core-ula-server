@@ -36,6 +36,8 @@ class UlaServerConnector extends BaseConnector {
 
     const response = await result.json()
 
+    console.log(response)
+
     return this.linkFromReference(Buffer.from(JSON.stringify(response)).toString('base64'))
   }
 
