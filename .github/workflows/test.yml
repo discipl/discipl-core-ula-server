@@ -28,6 +28,10 @@ jobs:
         env:
           ULA_BASIC_AUTH: aWN0dTp2NzdzaHZ6Z2VQeVpwUm9pQ3dhTzNETXljZlVVN0xNcGM4SG03bjlt
           ULA_ENDPOINT: https://0xvvmwxd6e.execute-api.eu-west-1.amazonaws.com/dev/sessions
+       - name: fix code coverage paths
+	      run: |
+	        sed -i 's/\/home\/runner\/work\/discipl-core-ula-server\/discipl-core-ula-server\//\/github\/workspace\//g' lcov.info
+	        sed -i 's/\/home\/runner\/work\/discipl-core-ula-server\/discipl-core-ula-server\//\/github\/workspace\//g' sonar-cloud-reporter.xml
       - name: Coverage
         run: npm run coverage
       - name: Sonar
