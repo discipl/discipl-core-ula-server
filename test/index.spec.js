@@ -14,7 +14,7 @@ describe('The ULA Server Connector', () => {
     expect(resultLink).to.be.a('string')
     expect(resultLink.startsWith('link:discipl:ula-server')).to.equal(true)
 
-    const claim = await conn.get(resultLink)
+    const claim = conn.get(resultLink)
 
     expect(claim.inviteURL).to.be.a('string')
     expect(claim.operationType).to.be.a('string')
