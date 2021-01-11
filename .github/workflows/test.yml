@@ -30,7 +30,9 @@ jobs:
           ULA_ENDPOINT: https://0xvvmwxd6e.execute-api.eu-west-1.amazonaws.com/dev/sessions
       - name: Coverage
         run: npm run coverage
+        run: sed -i 's|SF:/home/runner/work/discipl-core-ula-server/discipl-core-ula-server/|SF:|g' coverage/lcov.info
       - name: Sonar
+        run: sed -i 's|SF:/home/runner/work/discipl-core-ula-server/discipl-core-ula-server/|SF:|g' coverage/lcov.info
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
