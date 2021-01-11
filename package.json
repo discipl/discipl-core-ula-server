@@ -24,10 +24,10 @@
     "@discipl/core-baseconnector": "^0.2.2",
     "isomorphic-fetch": "^3.0.0",
     "loglevel": "^1.7.0",
-    "node-fetch": "^2.6.1",
-    "sed": "0.0.2"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "15": "0.0.0",
     "@babel/cli": "7.11.5",
     "@babel/core": "7.11.5",
     "@babel/preset-env": "7.11.5",
@@ -36,7 +36,8 @@
     "codecov": "^3.8.1",
     "eslint": "6.1.0",
     "mocha": "^8.1.3",
-    "nyc": "14.1.1",
+    "nyc": "^15.0.0",
+    "sed": "0.0.2",
     "sinon": "7.3.2",
     "standard": "14.3.1"
   }
