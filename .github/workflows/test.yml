@@ -32,7 +32,6 @@ jobs:
         run: npm run coverage
         run: sed -i 's|SF:/home/runner/work/discipl-core-ula-server/discipl-core-ula-server/|SF:|g' coverage/lcov.info
       - name: Sonar
-        run: sed -i 's|SF:/home/runner/work/discipl-core-ula-server/discipl-core-ula-server/|SF:|g' coverage/lcov.info
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
