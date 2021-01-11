@@ -2,15 +2,15 @@
 /* eslint-disable no-unused-expressions */
 
 import { expect } from 'chai'
+import sinon from 'sinon'
+
 import UlaServerConnector from '../src/index'
 
 describe('The ULA Server Connector', () => {
   it('should work in integration', async () => {
     const conn = new UlaServerConnector()
-    conn.configure(process.env.ULA_ENDPOINT, process.env.ULA_BASIC_AUTH)
-
+    conn.configure('https://localhost:8080', '')
     const resultLink = await conn.claim('123123123', '', { data: 'important' })
-
     expect(resultLink).to.be.a('string')
     expect(resultLink.startsWith('link:discipl:ula-server')).to.equal(true)
 
